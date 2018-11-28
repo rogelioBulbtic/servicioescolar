@@ -65,6 +65,11 @@ public class Alumno extends Persona{
     public void setPlanEstudio(PlanEstudio planEstudio) {
         this.planEstudio = planEstudio;
     }
+    
+    public Alumno planEstudio(PlanEstudio planEstudio){
+        setPlanEstudio(planEstudio);
+        return this;
+    }
 
     public boolean isInscrito() {
         return inscrito;
@@ -73,16 +78,24 @@ public class Alumno extends Persona{
     public void setInscrito(boolean inscrito) {
         this.inscrito = inscrito;
     }
+    
+    public Alumno inscrito(boolean inscrito){
+        setInscrito(inscrito);
+        return this;
+    }
 
     public String getMatricula() {
         return matricula;
     }
 
     public void setMatricula(String matricula) {
-        
         this.matricula = matricula;
     }
     
+    public Alumno matricula(String matricula) {
+        setMatricula(matricula);
+        return this;
+    }
     
    public void inscrbir(){
        

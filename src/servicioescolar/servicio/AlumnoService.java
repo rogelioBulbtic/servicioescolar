@@ -23,9 +23,10 @@ public interface AlumnoService {
     
     Alumno inscribirAlumno(AlumnoDTO alumnoDTO);
     
+    Alumno reinscribirAlumno(AlumnoDTO alumnoDTO) throws Exception;
+    
     static void estudiar(){
         System.out.println("Estoy estudiando");
     }
-    
     
 }

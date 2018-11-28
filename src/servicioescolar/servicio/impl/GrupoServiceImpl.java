@@ -7,6 +7,7 @@ package servicioescolar.servicio.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import servicioescolar.domain.Alumno;
 import servicioescolar.domain.Grupo;
 import servicioescolar.domain.Semestre;
@@ -36,6 +37,28 @@ public class GrupoServiceImpl implements GrupoService{
         grupo.setNumeroAlumnos((byte)alumnos.size());
         
         return grupo;
+    }
+
+    @Override
+    public void listarAlumnos(Grupo grupo) {
+        List<Alumno> alumnos = grupo.getAlumnos();
+        /*for(int i = 0; i<alumnos.size(); i++){
+            System.out.println(alumnos.get(i));
+        }*/
+        
+        alumnos.forEach(alumno -> System.out.println(alumno));
+    }
+
+    @Override
+    public Alumno obtenerAlumnoPorIndex(Grupo grupo,int index)throws Exception{
+        List<Alumno> alumnos = grupo.getAlumnos();
+        Alumno alumno;
+        try {
+            alumno = alumnos.get(index);
+            return alumno;
+        }finally{
+            throw  new Exception();
+        }
     }
     
 }

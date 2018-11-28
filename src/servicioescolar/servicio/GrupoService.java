@@ -17,4 +17,6 @@ public interface GrupoService {
 
     List<Grupo> generarGrupos(List<Alumno> alumnos);
     Grupo generaGrupo(List<Alumno> alumnos);
+    void listarAlumnos(Grupo grupo);
+    Alumno obtenerAlumnoPorIndex(Grupo grupo, int index) throws Exception;
 }

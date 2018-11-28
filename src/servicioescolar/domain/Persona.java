@@ -38,6 +38,12 @@ public abstract class Persona extends Object{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    public Persona nombre(String nombre) {
+        System.out.println("Estamos en el nombre");
+        setNombre(nombre);
+        return this;
+    }
 
     public String getApellidos() {
         return apellidos;
@@ -45,6 +51,12 @@ public abstract class Persona extends Object{
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+    
+    public Persona apellidos(String apellidos) {
+        System.out.println("EStamos en el apellido");
+        setApellidos(apellidos);
+        return this;
     }
 
     public byte getEdad() {

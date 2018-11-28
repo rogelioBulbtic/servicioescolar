@@ -15,14 +15,12 @@ import servicioescolar.servicio.dto.AlumnoDTO;
  *
  * @author Bulbtic
  */
-public class SercretariaServiceImpl implements SecretariaService{
+public class SercretariaServiceImpl{
 
-    @Override
     public Alumno inscribirAlumno(AlumnoDTO alumnoDTO) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void calificar(Grupo grupo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

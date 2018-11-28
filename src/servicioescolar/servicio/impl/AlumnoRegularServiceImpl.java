@@ -37,5 +37,10 @@ public class AlumnoRegularServiceImpl implements AlumnoService{
     public void pagar() {
         System.out.println("vooy a pagar");
     }
+
+    @Override
+    public Alumno reinscribirAlumno(AlumnoDTO alumnoDTO) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

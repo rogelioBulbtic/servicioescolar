@@ -21,6 +21,7 @@ public class AlumnoDTO {
     private byte edad;
     private String domicilio;
     private PlanEstudio planEstudio;
+    private boolean inscrito;
 
     public AlumnoDTO() {
     }
@@ -81,5 +82,15 @@ public class AlumnoDTO {
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    public boolean isInscrito() {
+        return inscrito;
+    }
+
+    public void setInscrito(boolean inscrito) {
+        this.inscrito = inscrito;
+    }
+    
+    
     
 }

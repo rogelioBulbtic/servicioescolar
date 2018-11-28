@@ -5,6 +5,8 @@
  */
 package servicioescolar.domain;
 
+import java.util.List;
+
 /**
  *
  * @author Bulbtic
@@ -14,6 +16,7 @@ public class Grupo {
     private String nombre;
     private byte maximoAlumnos;
     private byte numeroAlumnos;
+    private List<Alumno> alumnos;
 
     public Semestre getSemestre() {
         return semestre;
@@ -46,7 +49,13 @@ public class Grupo {
     public void setNumeroAlumnos(byte numeroAlumnos) {
         this.numeroAlumnos = numeroAlumnos;
     }
-    
-    
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
     
 }
