@@ -12,27 +12,39 @@ import java.util.List;
  *
  * @author Bulbtic
  */
-public class Profesor extends Persona{
+public class Profesor extends Persona {
 
     private String cedula;
     private List<Materia> materias;
 
-    public Profesor(String cedula, List<Materia> materias, String nombre, String apellidos) {
-        super(nombre, apellidos);
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public List<Materia> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(List<Materia> materias) {
         this.materias = materias;
     }
 
-    public Profesor() {
-    }
-    
-    public void comprar(String producto){
-        System.out.println("Estoy comprando con el 20% de descuento el producto de" + producto);
-    }
-    
-    public void calificarExamenes(){
-        System.out.println("Estoy calificando los examenes");
-    
+    @Override
+    public String toString() {
+        return "Profesor{" + "nombre=" + nombre + 
+                ", apellidos=" + apellidos + 
+                ", edad=" + edad + 
+                ", domicilio=" + domicilio + 
+                ", fechaNacimiento=" + fechaNacimiento + 
+                ", curp=" + curp + 
+                ", genero=" + genero + 
+                ", correo=" + correo + 
+                "cedula=" + cedula + 
+                ", materias=" + materias + '}';
     }
 
 }

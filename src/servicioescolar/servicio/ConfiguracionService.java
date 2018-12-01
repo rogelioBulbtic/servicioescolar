@@ -5,16 +5,12 @@
  */
 package servicioescolar.servicio;
 
-import servicioescolar.domain.Carrera;
-import servicioescolar.servicio.dto.AlumnoDTO;
-import servicioescolar.servicio.dto.AspiranteDTO;
+import servicioescolar.domain.LugarExamenSeleccion;
 
 /**
  *
  * @author Bulbtic
  */
-public interface AlumnoService {
-
-    AlumnoDTO inscribir(AspiranteDTO aspiranteDTO, Carrera carrera);
-
+public interface ConfiguracionService {
+    void crearLugarExamenSeleccion(LugarExamenSeleccion lugarExamenSeleccion);
 }

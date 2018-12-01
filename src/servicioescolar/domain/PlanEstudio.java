@@ -13,11 +13,12 @@ import java.util.List;
  * @author Bulbtic
  */
 public class PlanEstudio {
-    
+
     private String nombre;
     private LocalDate inicio;
     private LocalDate fin;
     private List<Semestre> semestres;
+    private boolean actual;
 
     public String getNombre() {
         return nombre;
@@ -50,5 +51,13 @@ public class PlanEstudio {
     public void setSemestres(List<Semestre> semestres) {
         this.semestres = semestres;
     }
-    
+
+    public boolean isActual() {
+        return actual;
+    }
+
+    public void setActual(boolean actual) {
+        this.actual = actual;
+    }
+
 }

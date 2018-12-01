@@ -6,22 +6,26 @@
 package servicioescolar.domain;
 
 import java.time.LocalDate;
+import servicioescolar.domain.enums.EstadoFichaEnum;
 
 /**
  *
  * @author Bulbtic
  */
-public class Persona {
+public class Ficha {
 
-    protected String nombre;
-    protected String apellidos;
-    protected byte edad;
-    protected String domicilio;
-    protected LocalDate fechaNacimiento;
-    protected String curp;
-    protected char genero;
-    protected String correo;
-
+    private String nombre;
+    private String apellidos;
+    private byte edad;
+    private String domicilio;
+    private LocalDate fechaNacimiento;
+    private String curp;
+    private char genero;
+    private String correo;
+    private String numero;
+    private boolean pagado;
+    private EstadoFichaEnum estado;
+    
     public String getNombre() {
         return nombre;
     }
@@ -86,18 +90,28 @@ public class Persona {
         this.correo = correo;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "nombre=" + nombre + 
-                ", apellidos=" + apellidos + 
-                ", edad=" + edad + 
-                ", domicilio=" + domicilio + 
-                ", fechaNacimiento=" + fechaNacimiento + 
-                ", curp=" + curp + 
-                ", genero=" + genero + 
-                ", correo=" + correo + '}';
+    public String getNumero() {
+        return numero;
     }
 
-    
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
+    public boolean isPagado() {
+        return pagado;
+    }
+
+    public void setPagado(boolean pagado) {
+        this.pagado = pagado;
+    }
+
+    public EstadoFichaEnum getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoFichaEnum estado) {
+        this.estado = estado;
+    }
+    
 }

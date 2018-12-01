@@ -11,26 +11,17 @@ import java.util.List;
 import java.util.Scanner;
 import servicioescolar.domain.Alumno;
 import servicioescolar.servicio.AlumnoService;
+import servicioescolar.servicio.AspiranteService;
+import servicioescolar.servicio.ConfiguracionService;
 import servicioescolar.servicio.dto.AlumnoDTO;
+import servicioescolar.servicio.dto.AspiranteDTO;
 import servicioescolar.servicio.impl.AlumnoRegularServiceImpl;
 import static servicioescolar.util.AlumnoUtil.NOMBRES;
 import static servicioescolar.util.AlumnoUtil.PRIMEROS_APELLIDOS;
 import static servicioescolar.util.AlumnoUtil.SEGUNDOS_APELLIDOS;
-import servicioescolar.util.DiaUtil;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import servicioescolar.domain.Grupo;
-import servicioescolar.domain.Persona;
-import servicioescolar.domain.Profesor;
-import servicioescolar.servicio.GrupoService;
-import servicioescolar.servicio.InscripcionService;
-import servicioescolar.servicio.excepciones.InscribirAlumnoException;
-import servicioescolar.servicio.excepciones.InscribirAlumnoPorDocumentosException;
 import servicioescolar.servicio.impl.AlumnoIrregular;
-import servicioescolar.servicio.impl.GrupoServiceImpl;
-import servicioescolar.util.DiaEnum;
-import servicioescolar.util.DiaNumericoUtil;
+import servicioescolar.servicio.impl.AspiranteServiceImpl;
+import servicioescolar.servicio.impl.ConfiguracionServiceImpl;
 
 /**
  *
@@ -42,60 +33,47 @@ public class Servicioescolar {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /*
-        InscripcionService inscripcion = (materia, cantidad) -> {System.out.println("Me estoy inscribiendo");
-                                                                return "Orden de pago por la cantidad de " + cantidad + " por la materia de " + materia;
-                                                                };
+        AspiranteService aspiranteService = new AspiranteServiceImpl();
+        List<AspiranteDTO> aspirantes = new ArrayList<>();
         
-        String ordenPago = inscripcion.inscribir("Programación Orientada a Objetos", 100);
-        System.out.println(ordenPago);*/
-
- /*AlumnoIrregular alumnoService = new AlumnoIrregular();
         
-        try {
-            alumnoService.fallaInscripcion();
-        }catch (Exception e) {
-            System.out.println("No se puede inscribir al alumno, por que debe materia, validar con el jefe de carrera");
-        }*/
-        List<Alumno> alumnosBaja = generaAlumnos();
+        System.out.println("Bienvenido al Sistema Escolar de Bulbtic");
+        Scanner sc = new Scanner(System.in);
 
-        /*try{
-                Grupo grupo = new Grupo();
-                grupo.setAlumnos(alumnos);
-        }catch(Exception e){
-            
-        }*/
-        /*Grupo grupo = new Grupo();
-        grupo.setAlumnos(alumnos);
-        GrupoService grupoService = new GrupoServiceImpl();
-
-        try {
-            Alumno alumno = grupoService.obtenerAlumnoPorIndex(grupo, 101);
-            System.out.println(alumno);
-        } catch (Exception exception) {
-            System.out.println("el alumno se ha dado de baja");
-        }
-
-        System.out.println("Seguimos con el flujo normal");*/
+        // Solicitar Ficha
+        System.out.println("Introduce el nombre del alumno");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce los apellidos del alumno");
+        String apellidos = sc.nextLine();
+        System.out.println("Introduce tu correo");
+        String correo = sc.nextLine();
         
-        AlumnoDTO alumnoDTO = new AlumnoDTO();
-        alumnoDTO.setApellidos("Perez León");
-        alumnoDTO.setNombres("Juan");
-        AlumnoService alumnoService = new AlumnoIrregular();
-        try{
-            alumnoService.reinscribirAlumno(alumnoDTO);
-            
-            
-        }catch(Exception e){
-            System.out.println("El alumno no se a inscrito a esta universidad");
-            
-            try{
-            alumnosBaja.get(101);
-            }catch(Exception ex){
-                System.out.println("El alumno tampoco fue de dado de baja");
-            }
-        }
-
+        AspiranteDTO aspiranteDTO = new AspiranteDTO();
+        aspiranteDTO.setApellidos(apellidos);
+        aspiranteDTO.setCorreo(correo);
+        aspiranteDTO.setNombre(nombre);
+        
+        aspiranteDTO = aspiranteService.solicitarFicha(aspiranteDTO);
+        aspirantes.add(aspiranteDTO);
+        
+        System.out.println("Alumnos inscritos");
+        
+        aspirantes.stream().forEach(System.out::println);
+        
+        //programar Examen de selección.
+        
+        
+        
+        
+    }
+    
+    public static void programarExamenSeleccion(AspiranteDTO aspiranteDTO){
+        System.out.println("Selecciona la cede");
+        ConfiguracionService configuracionService = new ConfiguracionServiceImpl();
+        
+        
+        Scanner sc = new Scanner(System.in);
+        int opcion  = sc.nextInt();
     }
 
     public static void iniciarAlumno() {
@@ -119,8 +97,6 @@ public class Servicioescolar {
         alumnoDTO.setDomicilio(domicillio);
         alumnoDTO.setFechaNacimiento(LocalDate.of(anioNacimiento, mesNacimiento, diaNacimiento));
 
-        Alumno alumno = alumnoService.inscribirAlumno(alumnoDTO);
-        System.out.println("Se ha creado un alumno " + alumno);
         return;
     }
 

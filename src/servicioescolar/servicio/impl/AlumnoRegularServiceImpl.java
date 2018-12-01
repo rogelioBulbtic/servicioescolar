@@ -5,11 +5,10 @@
  */
 package servicioescolar.servicio.impl;
 
-import servicioescolar.domain.Alumno;
-import servicioescolar.domain.PlanEstudio;
+import servicioescolar.domain.Carrera;
 import servicioescolar.servicio.AlumnoService;
-import servicioescolar.servicio.PlanEstudioService;
 import servicioescolar.servicio.dto.AlumnoDTO;
+import servicioescolar.servicio.dto.AspiranteDTO;
 
 /**
  *
@@ -17,30 +16,16 @@ import servicioescolar.servicio.dto.AlumnoDTO;
  */
 public class AlumnoRegularServiceImpl implements AlumnoService{
 
-    private PlanEstudioService planEstudioService = new PlanEstudioServiceImpl();
-    
     @Override
-    public Alumno inscribirAlumno(AlumnoDTO alumnoDTO) {
-        Alumno alumno = new Alumno();
-        alumno.setApellidos(alumnoDTO.getApellidos());
-        alumno.setDomicilio(alumnoDTO.getDomicilio());
-        alumno.setEdad(alumnoDTO.getEdad());
-        alumno.setNombre(alumnoDTO.getNombres());
-        
-        PlanEstudio planEstudio = planEstudioService.generarPlanEstudio();
-        alumno.setPlanEstudio(planEstudio);
-        
-        return alumno;
-    }
-
-    @Override
-    public void pagar() {
-        System.out.println("vooy a pagar");
-    }
-
-    @Override
-    public Alumno reinscribirAlumno(AlumnoDTO alumnoDTO) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AlumnoDTO inscribir(AspiranteDTO aspiranteDTO, Carrera carrera) {
+         /*Se busca un plan de estudio actual
+           Se crea un nuevo alumno
+           Se le asigna el plan de estudio
+           Se actualiza al aspirante con el estado inscrito 
+           Se registra al alumno
+           */
+            
+           return new AlumnoDTO();
     }
     
 }

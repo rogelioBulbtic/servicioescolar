@@ -5,16 +5,21 @@
  */
 package servicioescolar.servicio;
 
-import servicioescolar.domain.Carrera;
-import servicioescolar.servicio.dto.AlumnoDTO;
+import java.util.List;
+import servicioescolar.domain.Ficha;
 import servicioescolar.servicio.dto.AspiranteDTO;
 
 /**
  *
  * @author Bulbtic
  */
-public interface AlumnoService {
+public interface AspiranteService {
 
-    AlumnoDTO inscribir(AspiranteDTO aspiranteDTO, Carrera carrera);
+    AspiranteDTO solicitarFicha(AspiranteDTO aspiranteDTO);
 
+    List<AspiranteDTO> obtenerTodos();
+    
+    AspiranteDTO actualizar(AspiranteDTO aspiranteDTO);
+    
+    
 }
