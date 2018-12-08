@@ -16,5 +16,9 @@ import servicioescolar.servicio.dto.AspiranteDTO;
 public interface AlumnoService {
 
     AlumnoDTO inscribir(AspiranteDTO aspiranteDTO, Carrera carrera);
+    
+    default void respirar(){
+        System.out.println("Estoy respirando por la nariz");
+    }
 
 }

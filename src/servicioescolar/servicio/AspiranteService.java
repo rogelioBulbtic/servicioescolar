@@ -21,5 +21,7 @@ public interface AspiranteService {
     
     AspiranteDTO actualizar(AspiranteDTO aspiranteDTO);
     
+    AspiranteDTO obtenerPorIndex(int index);
+    
     
 }

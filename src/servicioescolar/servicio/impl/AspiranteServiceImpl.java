@@ -63,4 +63,22 @@ public class AspiranteServiceImpl implements AspiranteService {
         return String.valueOf(nuevoFolio);
     }
 
+    @Override
+    public AspiranteDTO obtenerPorIndex(int index) {
+        List<Ficha> fichas = fichaRepository.getFichas();
+        AspiranteDTO aspiranteDTO = new AspiranteDTO();
+       
+        try{
+            System.out.println(fichas.get(index));
+        }catch(Exception e){
+            aspiranteDTO.setNombre("Pedro");
+            return aspiranteDTO;
+        }
+        finally{
+            aspiranteDTO.setNombre("Pablo");
+            return aspiranteDTO;
+        }
+        
+    }
+
 }
